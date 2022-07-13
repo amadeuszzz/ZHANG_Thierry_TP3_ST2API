@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "TP3 - API";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Select a city</h2>
+        <div id="cities">
+            @foreach (var city in ViewBag.cities)
+            {
+                <button class="btn city" onclick="loadData('@city')">@city</button>
+            }
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <h2>Weather</h2>
+        <div id="weather_data">
+            <p>Location : <span id="location"></span></p>
+            <p>Update time : <span id="time"></span></p>
+            <p>Sunrise : <span id="sunrise"></span></p>
+            <p>Sunset : <span id="sunset"></span></p>
+            <p>Weather : <span id="weather"></span></p>
+            <p>Temperature : <span id="temperature"></span></p>
+            <p>Wind : <span id="wind"></span></p>
+            <p>Humidity : <span id="humidity"></span></p>
+            <p>Pressure : <span id="pressure"></span></p>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <h2>Air Pollution</h2>
+        <div id="air_polution_data">
+            <p>Carbon monoxide : <span id="CO"></span></p>
+            <p>Nitrogen monoxide : <span id="NO"></span></p>
+            <p>Nitrogen dioxide : <span id="NO2"></span></p>
+            <p>Ozone : <span id="O3"></span></p>
+            <p>Sulphur dioxide : <span id="SO2"></span></p>
+            <p>Fine particles matter : <span id="PM2_5"></span></p>
+            <p>Coarse particulate matter : <span id="PM10"></span></p>
+            <p>Ammonia : <span id="NH3"></span></p>
+            <p>Air quality (1 = Good, 5 = Bad) : <span id="quality"></span></p>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <h2>Forecast</h2>
+        <div id="forecast_data">
+            <table id="forecast_table">
+                <thead>
+                    <tr>
+                        <th>Time ( UTC )</th>
+                        <th>Temperature</th>
+                        <th>Weather</th>
+                        <th>Humidity</th>
+                        <th>Pressure</th>
+                        <th>Wind</th>
+                    </tr>
+                </thead>
+                <tbody id="forecast_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .city {
+        min-width: 30%;
+        margin: 5px;
+    }
+
+    #forecast_table {
+        width: 100%;
+        text-align: center;
+    }
+
+        #forecast_table th {
+            text-align: center;
+            background-color: #F0F0F0;
+        }
+
+        #forecast_table td {
+            border: 1px solid #F0F0F0;
+        }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/index.js"></script>
